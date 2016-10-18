@@ -30,7 +30,10 @@ public:
     QPointer<RemoteScreenBuffer> remoteScreenBuffer;
     QPointer<ScaledScreenBuffer> scaledScreenBuffer;
     QPointer<LetterboxedScreenBuffer> letterboxedScreenBuffer;
+    QPointer<QClipboard> clipboard;
+
     bool repaintNeeded;
+    bool lastKeyPressReleased;
 
     Q_DECLARE_PUBLIC(RemoteDisplayWidget)
     RemoteDisplayWidget* const q_ptr;
@@ -42,6 +45,7 @@ private slots:
     void onCursorChanged(const QCursor &cursor);
     void onDesktopUpdated();
     void onRepaintTimeout();
+    void onClipboardDataChanged();
 };
 
 #endif // REMOTEDISPLAYWIDGET_P_H

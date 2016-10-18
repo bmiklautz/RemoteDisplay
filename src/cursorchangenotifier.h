@@ -1,6 +1,7 @@
 #ifndef CURSORCHANGENOTIFIER_H
 #define CURSORCHANGENOTIFIER_H
 
+#include <cstring>
 #include <QObject>
 #include "pointerchangesink.h"
 
@@ -51,6 +52,8 @@ private slots:
     void onPointerChanged(int index);
 
 private:
+    void qt_freerdp_alpha_cursor_convert(BYTE* alphaData, BYTE* andMask, int width, int height, int bpp);
+
     Q_DECLARE_PRIVATE(CursorChangeNotifier)
     CursorChangeNotifierPrivate* const d_ptr;
 };
